@@ -2,9 +2,14 @@ package metier;
 
 import dao.USB;
 import dao.VGA;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UniteCentraleImpl implements UniteCentrale {
-
+    @Autowired
+    @Qualifier("E")
     private VGA vga;
     private USB usb;//couplge faible
     public UniteCentraleImpl() {
@@ -14,7 +19,7 @@ public class UniteCentraleImpl implements UniteCentrale {
         this.vga = vga;
     }
 
-    public void setDao(VGA vga) {
+    public void setVga(VGA vga) {
         this.vga = vga;
     }
     public void setDaoUsb(USB usb) {
